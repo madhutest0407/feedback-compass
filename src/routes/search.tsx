@@ -28,8 +28,8 @@ function SearchPage() {
   const { q, sources: sourcesParam, tf } = Route.useSearch();
   const sources = sourcesParam
     .split(",")
-    .map((s) => s.trim())
-    .filter((s): s is Source => (SOURCES as readonly string[]).includes(s));
+    .map((s: string) => s.trim())
+    .filter((s: string): s is Source => (SOURCES as readonly string[]).includes(s));
 
   return (
     <FeedbackWorkspace
