@@ -1,29 +1,85 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Sparkles, Zap, Layers, TrendingUp } from "lucide-react";
+
+import { SearchBar } from "@/components/feedback/SearchBar";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Feedback Viewer — Customer feedback command center" },
+      {
+        name: "description",
+        content:
+          "Search customer feedback across Reddit, Twitter, G2, Capterra, and Trustpilot. Prioritized by sentiment, scored for analysts.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="px-6 md:px-10 py-10 max-w-5xl mx-auto">
+      <div className="mb-8">
+        <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-3">
+          <Sparkles className="size-3" /> For product managers
+        </div>
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
+          See what customers really think,
+          <br />
+          <span className="text-muted-foreground">across the entire web.</span>
+        </h1>
+        <p className="text-base text-muted-foreground mt-4 max-w-2xl">
+          One search pulls feedback from Reddit, Twitter, G2, Capterra, and Trustpilot. We
+          classify each item by sentiment and severity so you can ship the right fix first.
+          Save searches as views and refresh anytime.
+        </p>
+      </div>
+
+      <SearchBar autoFocus />
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-10">
+        <Feature
+          icon={Layers}
+          title="5 sources, one feed"
+          body="Reddit threads, X/Twitter posts, and verified G2 / Capterra / Trustpilot reviews — deduplicated and grouped."
+        />
+        <Feature
+          icon={Zap}
+          title="Severity-first prioritization"
+          body="Critical, major, minor for negative — high vs low impact for positive. So the loudest issues surface immediately."
+        />
+        <Feature
+          icon={TrendingUp}
+          title="Scorecard + trend"
+          body="A 0–100 sentiment score, a theme breakdown, and a trend line that grows every time you refresh."
+        />
+      </div>
+
+      <div className="mt-10 text-xs text-muted-foreground border rounded-lg bg-card p-4">
+        <span className="font-medium text-foreground">Heads up:</span> this app uses the
+        Firecrawl connector to search the web. If your first search returns an error about a
+        missing key, open the connectors panel and link Firecrawl — searches will start working
+        immediately. The AI classifier uses Lovable AI (Gemini Flash) and is already wired up.
+      </div>
+    </div>
+  );
+}
+
+function Feature({
+  icon: Icon,
+  title,
+  body,
+}: {
+  icon: typeof Sparkles;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="border rounded-xl p-4 bg-card">
+      <Icon className="size-4 mb-2" />
+      <div className="font-medium text-sm">{title}</div>
+      <p className="text-xs text-muted-foreground mt-1">{body}</p>
     </div>
   );
 }
