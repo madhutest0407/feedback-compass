@@ -5,7 +5,7 @@ import { Search, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Check } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -93,7 +93,7 @@ export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
                       : "bg-background text-foreground hover:bg-muted"
                   }`}
                 >
-                  <Checkbox checked={checked} className="size-3.5 pointer-events-none" />
+                  <span className={`size-3.5 rounded-sm border grid place-content-center ${checked ? "bg-background text-foreground border-background" : "border-current/40"}`}>{checked && <Check className="size-3" />}</span>
                   {SOURCE_LABELS[s]}
                 </button>
               );
