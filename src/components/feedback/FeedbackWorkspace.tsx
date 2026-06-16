@@ -180,20 +180,20 @@ export function FeedbackWorkspace({
           <h1 className="text-2xl md:text-3xl font-semibold tracking-tight mt-1 truncate max-w-2xl">
             {initialView?.name ?? keyword}
           </h1>
-          <div className=”flex flex-wrap items-center gap-3 mt-2 text-xs text-muted-foreground”>
-            <span className=”inline-flex items-center gap-1”>
-              <LinkIcon className=”size-3” />”{keyword}”
+          <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1">
+              <LinkIcon className="size-3" />"{keyword}"
             </span>
             <span>·</span>
             <span>
-              {sources.map((s) => SOURCE_LABELS[s]).join(“ · “)}
+              {sources.map((s) => SOURCE_LABELS[s]).join(" · ")}
             </span>
             <span>·</span>
-            <span className=”font-semibold text-primary-foreground bg-primary px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wide”>
-              Past {timeframe === “all” ? “All Time” : timeframe.charAt(0).toUpperCase() + timeframe.slice(1)}
+            <span className="font-semibold text-primary-foreground bg-primary px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wide">
+              Past {timeframe === "all" ? "All Time" : timeframe.charAt(0).toUpperCase() + timeframe.slice(1)}
             </span>
             <span>·</span>
-            <span className={isLoading ? “text-foreground” : “”}>{status}</span>
+            <span className={isLoading ? "text-foreground" : ""}>{status}</span>
           </div>
         </div>
         <div className="flex items-center gap-2">
