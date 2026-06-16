@@ -6,7 +6,7 @@ import { SearchBar } from "@/components/feedback/SearchBar";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feedback Viewer — Customer feedback command center" },
+      { title: "Feedback Viewer — Customer Feedback Command Center" },
       {
         name: "description",
         content:
@@ -19,17 +19,16 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="px-6 md:px-10 py-10 max-w-5xl mx-auto">
-      <div className="mb-8">
-        <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <Sparkles className="size-3" /> For product managers
+    <div className="px-6 md:px-10 py-8 max-w-5xl mx-auto">
+      <div className="mb-6">
+        <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-2">
+          <Sparkles className="size-3" /> For Product Managers
         </div>
-        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
-          See what customers really think,
-          <br />
+        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
+          See what customers really think,{" "}
           <span className="text-muted-foreground">across the entire web.</span>
         </h1>
-        <p className="text-base text-muted-foreground mt-4 max-w-2xl">
+        <p className="text-sm text-muted-foreground mt-2 max-w-2xl">
           One search pulls feedback from Reddit, Twitter, G2, Capterra, and Trustpilot. We
           classify each item by sentiment and severity so you can ship the right fix first.
           Save searches as views and refresh anytime.
@@ -38,26 +37,26 @@ function Index() {
 
       <SearchBar autoFocus />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8">
         <Feature
           icon={Layers}
-          title="5 sources, one feed"
+          title="5 Sources, One Feed"
           body="Reddit threads, X/Twitter posts, and verified G2 / Capterra / Trustpilot reviews — deduplicated and grouped."
         />
         <Feature
           icon={Zap}
-          title="Severity-first prioritization"
+          title="Severity-First Prioritization"
           body="Critical, major, minor for negative — high vs low impact for positive. So the loudest issues surface immediately."
         />
         <Feature
           icon={TrendingUp}
-          title="Scorecard + trend"
+          title="Scorecard + Trend"
           body="A 0–100 sentiment score, a theme breakdown, and a trend line that grows every time you refresh."
         />
       </div>
 
-      <div className="mt-10 text-xs text-muted-foreground border rounded-lg bg-card p-4">
-        <span className="font-medium text-foreground">Heads up:</span> this app uses the
+      <div className="mt-8 text-xs text-muted-foreground border rounded-lg bg-card p-4">
+        <span className="font-medium text-foreground">Heads Up:</span> This app uses the
         Firecrawl connector to search the web. If your first search returns an error about a
         missing key, open the connectors panel and link Firecrawl — searches will start working
         immediately. The AI classifier uses Lovable AI (Gemini Flash) and is already wired up.
@@ -77,7 +76,7 @@ function Feature({
 }) {
   return (
     <div className="border rounded-xl p-4 bg-card">
-      <Icon className="size-4 mb-2" />
+      <Icon className="size-4 mb-2 text-primary" />
       <div className="font-medium text-sm">{title}</div>
       <p className="text-xs text-muted-foreground mt-1">{body}</p>
     </div>

@@ -65,7 +65,7 @@ export function AppSidebar() {
         <div className="px-2 pb-2">
           <Button asChild size="sm" className="w-full justify-start">
             <Link to="/">
-              <Plus className="mr-2 size-4" /> New search
+              <Plus className="mr-2 size-4" /> New Search
             </Link>
           </Button>
         </div>
@@ -73,12 +73,12 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Saved views ({views.length})</SidebarGroupLabel>
+          <SidebarGroupLabel>Saved Views ({views.length})</SidebarGroupLabel>
           <SidebarGroupContent>
             {views.length === 0 ? (
               <div className="px-3 py-6 text-xs text-muted-foreground flex flex-col items-center text-center gap-2">
                 <Inbox className="size-5 opacity-60" />
-                <span>No saved views yet. Run a search and save it.</span>
+                <span>No Saved Views Yet. Run A Search And Save It.</span>
               </div>
             ) : (
               <SidebarMenu>

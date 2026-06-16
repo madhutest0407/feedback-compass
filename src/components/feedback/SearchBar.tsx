@@ -52,7 +52,7 @@ export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
     >
       <div className="space-y-2">
         <Label htmlFor="kw" className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Keyword or product
+          Keyword Or Product
         </Label>
         <div className="flex gap-2">
           <Input

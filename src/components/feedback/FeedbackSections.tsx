@@ -78,11 +78,14 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
   }, [items]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return items.filter((i) => {
       if (!sourceFilter.includes(i.source)) return false;
       if (themeFilter && i.theme !== themeFilter) return false;
-      if (q && !(`${i.title} ${i.snippet}`.toLowerCase().includes(q))) return false;
+      if (words.length > 0) {
+        const text = `${i.title} ${i.snippet}`.toLowerCase();
+        if (!words.every((w) => text.includes(w))) return false;
+      }
       return true;
     });
   }, [items, sourceFilter, themeFilter, query]);
@@ -94,7 +97,7 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
     <div className="space-y-6">
       <div className="rounded-xl border bg-card p-4 flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-2 text-sm font-medium">
-          <Filter className="size-4" /> Filters
+          <Filter className="size-4" /> Filter By
         </div>
         <div className="flex flex-wrap gap-1.5">
           {SOURCES.map((s) => {
@@ -118,7 +121,7 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
             onChange={(e) => setThemeFilter(e.target.value || null)}
             className="text-xs border rounded-md px-2 py-1 bg-background"
           >
-            <option value="">All themes</option>
+            <option value="">All Themes</option>
             {allThemes.map((t) => (
               <option key={t} value={t}>
                 {t}
@@ -127,7 +130,7 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
           </select>
         )}
         <Input
-          placeholder="Search within results…"
+          placeholder="Search Within Results…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="h-8 max-w-xs ml-auto text-sm"
@@ -146,7 +149,7 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
           </Button>
         )}
         <div className="text-xs text-muted-foreground ml-auto">
-          Showing {filtered.length} of {items.length}
+          Showing {filtered.length} Of {items.length}
         </div>
       </div>
 
