@@ -123,12 +123,23 @@ export const fetchFeedback = createServerFn({ method: "POST" })
         const site = SOURCE_SITE[source];
         const reviewSuffix =
           source === "g2" || source === "capterra" || source === "trustpilot" ? " review" : "";
-        const query = `site:${site} ${data.keyword}${reviewSuffix}`;
+        // Wrap keyword in quotes to enforce exact phrase match on the search engine
+        const query = `site:${site} "${data.keyword}"${reviewSuffix}`;
         const hits = await firecrawlSearch(apiKey, query, data.perSourceLimit, tbs);
+
+        // Split keyword into individual words for post-fetch relevance filtering
+        const keywordWords = data.keyword.toLowerCase().split(/\s+/).filter(Boolean);
+
         const items: RawFeedback[] = [];
         for (const hit of hits) {
           if (!hit.url || !matchesSource(hit.url, source)) continue;
           const snippet = (hit.description ?? hit.markdown ?? "").slice(0, 600);
+          const fullText = `${hit.title ?? ""} ${snippet}`.toLowerCase();
+
+          // Reject results where none of the keyword words appear in the text
+          const isRelevant = keywordWords.every((word) => fullText.includes(word));
+          if (!isRelevant) continue;
+
           items.push({
             id: `${source}:${hit.url}`,
             source,
