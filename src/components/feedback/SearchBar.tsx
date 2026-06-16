@@ -112,7 +112,7 @@ export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
             <SelectContent>
               {TIMEFRAMES.map((t) => (
                 <SelectItem key={t} value={t}>
-                  Past {t === "all" ? "all time" : t}
+                  Past {t === "all" ? "All Time" : t.charAt(0).toUpperCase() + t.slice(1)}
                 </SelectItem>
               ))}
             </SelectContent>
