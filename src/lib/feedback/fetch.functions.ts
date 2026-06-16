@@ -127,18 +127,20 @@ export const fetchFeedback = createServerFn({ method: "POST" })
         const query = `site:${site} "${data.keyword}"${reviewSuffix}`;
         const hits = await firecrawlSearch(apiKey, query, data.perSourceLimit, tbs);
 
-        // Split keyword into individual words for post-fetch relevance filtering
-        const keywordWords = data.keyword.toLowerCase().split(/\s+/).filter(Boolean);
+        // Exact phrase for strict post-fetch relevance filtering (case-insensitive)
+        const keywordPhrase = data.keyword.toLowerCase().trim();
 
         const items: RawFeedback[] = [];
         for (const hit of hits) {
           if (!hit.url || !matchesSource(hit.url, source)) continue;
           const snippet = (hit.description ?? hit.markdown ?? "").slice(0, 600);
-          const fullText = `${hit.title ?? ""} ${snippet}`.toLowerCase();
+          // Include URL in relevance check — product names often appear in URL slugs
+          const fullText = `${hit.url} ${hit.title ?? ""} ${snippet}`.toLowerCase();
 
-          // Reject results where none of the keyword words appear in the text
-          const isRelevant = keywordWords.every((word) => fullText.includes(word));
-          if (!isRelevant) continue;
+          // Require the full keyword phrase to appear as a contiguous string.
+          // This prevents e.g. "Zoho Calendar" matching pages about "Zoho Mail"
+          // that merely mention the word "calendar" elsewhere on the page.
+          if (!fullText.includes(keywordPhrase)) continue;
 
           items.push({
             id: `${source}:${hit.url}`,
