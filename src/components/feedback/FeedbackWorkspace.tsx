@@ -182,7 +182,7 @@ export function FeedbackWorkspace({
           </h1>
           <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1">
-              <LinkIcon className="size-3" />"{keyword}"
+              <LinkIcon className="size-3" />&quot;{keyword}&quot;
             </span>
             <span>·</span>
             <span>
