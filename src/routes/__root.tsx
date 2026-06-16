@@ -87,13 +87,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Search Reddit, Twitter, G2, Capterra, and Trustpilot for customer feedback, prioritized by sentiment.",
       },
       { name: "author", content: "Feedback Viewer" },
-      { property: "og:title", content: "Feedback Viewer" },
+      { property: "og:title", content: "Feedback Viewer — Customer feedback command center" },
       {
         property: "og:description",
         content: "Aggregated customer feedback across the web, prioritized by sentiment.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Feedback Viewer — Customer feedback command center" },
+      { name: "description", content: "Feedback Compass aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
+      { property: "og:description", content: "Feedback Compass aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
+      { name: "twitter:description", content: "Feedback Compass aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e80638c-885e-4cce-8770-141fa080c795/id-preview-bca6f04b--64af7b65-db71-4355-8387-b56024960672.lovable.app-1781624247762.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e80638c-885e-4cce-8770-141fa080c795/id-preview-bca6f04b--64af7b65-db71-4355-8387-b56024960672.lovable.app-1781624247762.png" },
     ],
     links: [
       {
