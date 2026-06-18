@@ -56,9 +56,9 @@ export function AppSidebar() {
             FV
           </div>
           <div className="leading-tight">
-            <div className="text-sm font-semibold">Feedback Viewer</div>
+            <div className="text-sm font-semibold">VoxPulse</div>
             <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
-              PM Command Center
+              Customer Voice Analyser
             </div>
           </div>
         </Link>

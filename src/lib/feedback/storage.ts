@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import type { SavedView } from "./types";
 
-const STORAGE_KEY = "feedback-viewer:views";
+const STORAGE_KEY = "voxpulse:views";
 
 function read(): SavedView[] {
   if (typeof window === "undefined") return [];

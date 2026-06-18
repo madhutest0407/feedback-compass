@@ -16,7 +16,7 @@ export const Route = createFileRoute("/search")({
     const q = (match.search as { q?: string }).q ?? "feedback";
     return {
       meta: [
-        { title: `“${q}” — Feedback Viewer` },
+        { title: `“${q}” — VoxPulse` },
         { name: "description", content: `Customer feedback for "${q}" across Reddit, Twitter, G2, Capterra, and Trustpilot.` },
       ],
     };

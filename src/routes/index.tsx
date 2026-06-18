@@ -6,7 +6,7 @@ import { SearchBar } from "@/components/feedback/SearchBar";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feedback Viewer — Customer Feedback Command Center" },
+      { title: "VoxPulse — Customer Voice Analyser" },
       {
         name: "description",
         content:

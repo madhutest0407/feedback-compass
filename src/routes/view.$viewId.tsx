@@ -9,7 +9,7 @@ import type { SavedView } from "@/lib/feedback/types";
 export const Route = createFileRoute("/view/$viewId")({
   head: () => ({
     meta: [
-      { title: "Saved view — Feedback Viewer" },
+      { title: "Saved View — VoxPulse" },
       { name: "description", content: "A saved customer feedback view." },
     ],
   }),
