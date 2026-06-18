@@ -6,6 +6,8 @@ import {
   Sparkles,
   Heart,
   Filter,
+  Check,
+  Plus,
 } from "lucide-react";
 
 import { FeedbackCard } from "./FeedbackCard";
@@ -106,10 +108,13 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
               <button
                 key={s}
                 onClick={() => toggleSource(s)}
-                className={`text-xs px-2.5 py-1 rounded-full border ${
-                  active ? "bg-foreground text-background border-foreground" : "bg-background hover:bg-muted"
+                className={`cursor-pointer flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border font-medium transition-all ${
+                  active
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
                 }`}
               >
+                {active ? <Check className="size-3" /> : <Plus className="size-3" />}
                 {SOURCE_LABELS[s]}
               </button>
             );
@@ -124,7 +129,7 @@ export function FeedbackSections({ items }: { items: ClassifiedFeedback[] }) {
             <option value="">All Themes</option>
             {allThemes.map((t) => (
               <option key={t} value={t}>
-                {t}
+                {t.replace(/\b\w/g, (c) => c.toUpperCase())}
               </option>
             ))}
           </select>

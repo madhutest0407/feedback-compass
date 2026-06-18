@@ -132,10 +132,10 @@ export function AppSidebar() {
                             >
                               <div className="flex flex-col items-start gap-0.5 min-w-0 flex-1">
                                 <div className="flex items-center gap-1.5 w-full">
-                                  <span className="truncate text-sm">{v.name}</span>
+                                  <span className="truncate text-sm font-normal">{v.name}</span>
                                   <ScorePill score={score} />
                                 </div>
-                                <span className="text-[10px] text-muted-foreground truncate w-full">
+                                <span className="text-[10px] text-muted-foreground/70 truncate w-full">
                                   {v.lastFetchedAt
                                     ? `Updated ${formatDistanceToNow(new Date(v.lastFetchedAt), { addSuffix: true })}`
                                     : "Never fetched"}
