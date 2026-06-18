@@ -96,6 +96,9 @@ export function Scorecard({
           <div className="text-sm text-muted-foreground">/ 100</div>
         </div>
         <div className={`text-sm font-medium mt-1 ${tone.text}`}>{tone.label}</div>
+        <p className="text-xs text-muted-foreground mt-2 leading-snug">
+          Weighted by severity &amp; impact across {items.length} feedback items
+        </p>
         {delta !== null && (
           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-3">
             {delta > 0 ? (
