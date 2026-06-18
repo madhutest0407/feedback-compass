@@ -98,8 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "VoxPulse aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
       { property: "og:description", content: "VoxPulse aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
       { name: "twitter:description", content: "VoxPulse aggregates customer feedback from multiple sources, enabling keyword-based searches and sentiment analysis." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e80638c-885e-4cce-8770-141fa080c795/id-preview-bca6f04b--64af7b65-db71-4355-8387-b56024960672.lovable.app-1781624247762.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e80638c-885e-4cce-8770-141fa080c795/id-preview-bca6f04b--64af7b65-db71-4355-8387-b56024960672.lovable.app-1781624247762.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/24550c50-167a-46cf-869e-3beb3a7f86f1" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/24550c50-167a-46cf-869e-3beb3a7f86f1" },
     ],
     links: [
       {
