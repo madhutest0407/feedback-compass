@@ -86,13 +86,13 @@ export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
                   type="button"
                   key={s}
                   onClick={() => toggle(s)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm font-medium transition-all ${
+                  className={`cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm font-medium transition-all select-none ${
                     checked
-                      ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                      : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm hover:bg-primary/90"
+                      : "bg-muted text-muted-foreground border-border hover:border-primary hover:text-primary hover:bg-primary/10"
                   }`}
                 >
-                  {checked && <Check className="size-3.5" />}
+                  {checked ? <Check className="size-3.5" /> : <span className="size-3.5 rounded-full border-2 border-current opacity-40" />}
                   {SOURCE_LABELS[s]}
                 </button>
               );
