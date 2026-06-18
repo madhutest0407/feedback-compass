@@ -189,7 +189,7 @@ export function FeedbackWorkspace({
               {sources.map((s) => SOURCE_LABELS[s]).join(" · ")}
             </span>
             <span>·</span>
-            <span className="font-semibold text-primary-foreground bg-primary px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wide">
+            <span className="text-primary border border-primary/40 bg-primary/10 px-2 py-0.5 rounded-full text-xs">
               Past {timeframe === "all" ? "All Time" : timeframe.charAt(0).toUpperCase() + timeframe.slice(1)}
             </span>
             <span>·</span>
