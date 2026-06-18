@@ -51,15 +51,6 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="border-b">
-        <Link to="/" className="flex items-center gap-2 px-2 py-3">
-          <img src="/voxpulse-logo.svg" alt="VoxPulse" className="h-7 w-auto" />
-          <div className="leading-tight">
-            <div className="text-sm font-semibold">VoxPulse</div>
-            <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
-              Customer Voice Analyser
-            </div>
-          </div>
-        </Link>
         <div className="px-2 pb-2">
           <Button asChild size="sm" className="w-full justify-start">
             <Link to="/">

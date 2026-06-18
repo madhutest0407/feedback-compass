@@ -140,7 +140,7 @@ function RootComponent() {
             <header className="h-12 flex items-center border-b bg-background sticky top-0 z-10">
               <SidebarTrigger className="ml-2" />
               <div className="text-xs text-muted-foreground ml-3">
-                VoxPulse
+                Customer Voice Analyser
               </div>
             </header>
             <main className="flex-1 min-w-0">
