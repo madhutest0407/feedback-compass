@@ -55,12 +55,6 @@ function Index() {
         />
       </div>
 
-      <div className="mt-8 text-xs text-muted-foreground border rounded-lg bg-card p-4">
-        <span className="font-medium text-foreground">Heads Up:</span> This app uses the
-        Firecrawl connector to search the web. If your first search returns an error about a
-        missing key, open the connectors panel and link Firecrawl — searches will start working
-        immediately. The AI classifier uses Lovable AI (Gemini Flash) and is already wired up.
-      </div>
     </div>
   );
 }

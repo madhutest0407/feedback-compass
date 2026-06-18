@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Search, Loader2 } from "lucide-react";
+import { Search, Loader2, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Check } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -87,13 +86,13 @@ export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
                   type="button"
                   key={s}
                   onClick={() => toggle(s)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm transition ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm font-medium transition-all ${
                     checked
-                      ? "bg-foreground text-background border-foreground"
-                      : "bg-background text-foreground hover:bg-muted"
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                      : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
                   }`}
                 >
-                  <span className={`size-3.5 rounded-sm border grid place-content-center ${checked ? "bg-background text-foreground border-background" : "border-current/40"}`}>{checked && <Check className="size-3" />}</span>
+                  {checked && <Check className="size-3.5" />}
                   {SOURCE_LABELS[s]}
                 </button>
               );
