@@ -102,10 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/24550c50-167a-46cf-869e-3beb3a7f86f1" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/voxpulse-favicon-32.svg", sizes: "32x32" },
+      { rel: "icon", type: "image/svg+xml", href: "/voxpulse-favicon-16.svg", sizes: "16x16" },
+      { rel: "shortcut icon", href: "/voxpulse-favicon-32.svg" },
     ],
   }),
   shellComponent: RootShell,
