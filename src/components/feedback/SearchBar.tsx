@@ -23,7 +23,7 @@ import {
 export function SearchBar({ autoFocus = false }: { autoFocus?: boolean }) {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
-  const [sources, setSources] = useState<Source[]>([...SOURCES]);
+  const [sources, setSources] = useState<Source[]>(["reddit", "g2", "trustpilot"]);
   const [timeframe, setTimeframe] = useState<Timeframe>("month");
   const [submitting, setSubmitting] = useState(false);
 

@@ -10,7 +10,7 @@ const FetchInput = z.object({
   keyword: z.string().min(1).max(200),
   sources: z.array(SourceEnum).min(1),
   timeframe: TimeframeEnum,
-  perSourceLimit: z.number().int().min(1).max(20).default(8),
+  perSourceLimit: z.number().int().min(1).max(20).default(5),
 });
 
 const SOURCE_SITE: Record<Source, string> = {

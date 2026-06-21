@@ -105,7 +105,7 @@ export function FeedbackWorkspace({
       setPhase("fetching");
       setErrors([]);
       const fetched = await fetchFn({
-        data: { keyword: kw, sources: srcs, timeframe: tf, perSourceLimit: 8 },
+        data: { keyword: kw, sources: srcs, timeframe: tf, perSourceLimit: 5 },
       });
       setErrors(fetched.errors);
       if (fetched.items.length === 0) {
@@ -174,6 +174,18 @@ export function FeedbackWorkspace({
   }, []);
 
   const isLoading = phase !== "idle";
+
+  // 2-hour cooldown to protect Firecrawl credits
+  const TWO_HOURS_MS = 2 * 60 * 60 * 1000;
+  const msUntilRefresh = lastFetchedAt
+    ? Math.max(0, TWO_HOURS_MS - (Date.now() - new Date(lastFetchedAt).getTime()))
+    : 0;
+  const canRefresh = msUntilRefresh === 0;
+  const cooldownLabel = canRefresh
+    ? ""
+    : msUntilRefresh > 60_000
+      ? `Available in ${Math.ceil(msUntilRefresh / 60_000)} min`
+      : "Available in < 1 min";
 
   const status = useMemo(() => {
     if (phase === "fetching") return "Fetching from sources…";
@@ -274,14 +286,17 @@ export function FeedbackWorkspace({
             variant="outline"
             size="sm"
             onClick={() => refresh.mutate()}
-            disabled={isLoading}
+            disabled={isLoading || !canRefresh}
+            title={cooldownLabel || undefined}
           >
             {isLoading ? (
               <Loader2 className="size-4 animate-spin" />
             ) : (
               <RefreshCw className="size-4" />
             )}
-            <span className="ml-2">Refresh</span>
+            <span className="ml-2">
+              {!isLoading && !canRefresh ? cooldownLabel : "Refresh"}
+            </span>
           </Button>
           {isSaved && (
             <Button variant="outline" size="sm" onClick={openEditDialog} disabled={isLoading}>
